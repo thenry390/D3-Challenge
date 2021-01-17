@@ -135,7 +135,7 @@ d3.csv("./assets/data/data.csv").then(function(data, err) {
     .append("circle")
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
     .attr("cy", d => yLinearScale(d.healthcare))
-    .attr("r", 20)
+    .attr("r", 10)
     .attr("fill", "blue")
     .attr("opacity", "1");
 
