@@ -103,7 +103,10 @@ d3.csv("./assets/data/data.csv").then(function(data, err) {
   data.forEach(function(data) {
     data.poverty = +data.poverty;
     data.healthcare = +data.healthcare;
-  
+    data.poverty = +data.smokes;
+    data.healthcare = +data.obesity;
+    data.poverty = +data.age;
+    data.healthcare = +data.income;
   });
 
   // xLinearScale function above csv import
@@ -150,12 +153,20 @@ d3.csv("./assets/data/data.csv").then(function(data, err) {
     .classed("active", true)
     .text("In Poverty (%)");
 
-  var healthcareLabel = labelsGroup.append("text")
+  var ageLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 40)
-    .attr("value", "healthcare") // value to grab for event listener
+    .attr("value", "age") // value to grab for event listener
     .classed("inactive", true)
-    .text("Healthcare Coverage (%)");
+    .text("Age Median (%)");  
+    
+  var incomveLabel = labelsGroup.append("text")
+    .attr("x", 0)
+    .attr("y", 60)
+    .attr("value", "income") // value to grab for event listener
+    .classed("inactive", true)
+    .text("Household Income Median (%)");
+
 
   // append y axis
   graphGroup.append("text")
@@ -164,7 +175,23 @@ d3.csv("./assets/data/data.csv").then(function(data, err) {
     .attr("x", 0 - (height / 2))
     .attr("dy", "1em")
     .classed("axis-text", true)
-    .text("Healthcare Coverage (%)");
+    .text("Lacks Healthcare (%)");
+  // append y axis
+  graphGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .classed("axis-text", true)
+    .text("Smokes (%)");
+  // append y axis
+  graphGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .classed("axis-text", true)
+    .text("Obese (%)");
 
   // updateToolTip function above csv import
   var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
