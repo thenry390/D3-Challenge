@@ -115,7 +115,7 @@ d3.csv("./assets/data/hairData.csv").then(function(hairData, err) {
   // Create initial axis functions
   var bottomAxis = d3.axisBottom(xLinearScale);
   var leftAxis = d3.axisLeft(yLinearScale);
-  console.log("before chartGroup");
+ 
   // append x axis
   var xAxis = chartGroup.append("g")
     .classed("x-axis", true)
@@ -125,7 +125,7 @@ d3.csv("./assets/data/hairData.csv").then(function(hairData, err) {
   // append y axis
   chartGroup.append("g")
     .call(leftAxis);
-  console.log("before circlesGroup")
+  
   // append initial circles
   var circlesGroup = chartGroup.selectAll("circle")
     .data(hairData)
@@ -154,7 +154,7 @@ d3.csv("./assets/data/hairData.csv").then(function(hairData, err) {
     .attr("value", "num_albums") // value to grab for event listener
     .classed("inactive", true)
     .text("# of Albums Released");
-  console.log("before chartGroup.append")
+  
   // append y axis
   chartGroup.append("text")
     .attr("transform", "rotate(-90)")
