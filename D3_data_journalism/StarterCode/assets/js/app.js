@@ -131,9 +131,13 @@ d3.csv("./assets/data/data.csv").then(function(data, err) {
     .append("circle")
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
     .attr("cy", d => yLinearScale(d.healthcare))
-    .attr("r", 10)
+    .attr("r", 13)
     .attr("fill", "blue")
-    .attr("opacity", "1");
+    .attr("opacity", ".7");
+    // .append("text")
+    // .attr("x", d => xLinearScale(d[chosenXAxis]))
+    // .attr("y", d => yLinearScale(d.healthcare))
+    // .text(d =>d.abbr);
 
   // Create group for two x-axis labels
   var labelsGroup = graphGroup.append("g")
@@ -161,6 +165,9 @@ d3.csv("./assets/data/data.csv").then(function(data, err) {
 }).catch(function(error) {
   console.log(error);
 });
+
+//extra credit version below
+
 // var svgWidth = 960;
 // var svgHeight = 500;
 
